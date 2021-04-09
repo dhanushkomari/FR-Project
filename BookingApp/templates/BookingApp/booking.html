@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="90"> -->
+    <title>Smile Hospitals</title>
+
+     <!-- stylesheet -->
+   <link rel="stylesheet" href="{% static "assets/css/vendors/bootstrap.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/font-awesome.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/slick.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/style.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/index.css" %}">
+
+</head>
+<body><br>
+    <center><img src="{% static "assets/images/logo.png" %}" alt="" onerror=this.src="" heigth = "150" width="150"></center>
+    <br><br>
+    
+    <div data-parallax="scroll" data-image-src="{% static "assets/images/bg/03.png" %}"></div>
+    <div class="container">
+        
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-row" style="color: aliceblue;">
+                    
+                    <div class="form-group col-sm-7 mb-0">
+                        {{ form.doctor|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-sm-5 mb-0">
+                        {{ form.Booking_time|as_crispy_field }}
+                    </div>
+
+                </div>
+
+                <div class="form-row" style="color: aliceblue;">
+                    <div class="form-group col-sm-12 mb-0">
+                        {{ form.description|as_crispy_field }}
+                    </div>
+
+                    
+                </div> 
+
+                    
+
+                
+                  
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form><br> 
+
+            <a href="{% url 'CameraApp:index' %}" class="btn btn-md btn-secondary">Go to home</a></center>
+        </div>
+        </div>
+<br>
+
+    
+    
+
+    <!-- Scripts -->
+   <script src="{% static "assets/js/vendors/jquery-3.3.1.min.js" %}"></script>
+
+   <script src="{% static "assets/js/vendors/popper.js" %}"></script>
+   <script src="{% static "assets/js/vendors/bootstrap.min.js" %}"></script>
+   <script src="{% static "assets/js/vendors/slick.min.js" %}"></script>
+   <script src="{% static "assets/js/theme/script.js" %}"></script>   
+   <script src="{% static "assets/js/vendors/parallax.min.js" %}"></script>
+   
+   <script type="text/javascript">       
+       
+    var auto_refresh = setInterval(
+    function ()
+    {               
+        console.log('loaded');                     
+        window.location.href = 'http://127.0.0.1:8000'
+    }, 80000); 
+
+
+</script> 
+   
+       
+</script> 
+
+</body>
+</html>

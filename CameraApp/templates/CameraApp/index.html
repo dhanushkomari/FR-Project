@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+   <!-- meta -->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Smile">
+   <meta name="keywords" content="Smile">
+   <meta name="theme-color" content="#050505">
+   
+   <meta name="description" content="Smile">
+   <!-- <meta http-equiv="refresh" content="5"> -->
+
+   <!-- stylesheet -->
+   <link rel="stylesheet" href="{% static "assets/css/vendors/bootstrap.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/font-awesome.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/slick.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/style.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/index.css" %}">
+   <!-- title -->
+   <title>Smile Hospitals</title>
+   <style>
+           #logo{ 
+      position:fixed; 
+      top:0; 
+      left:0; 
+  } 
+  .icon-vid{
+      border-radius: 2%;
+  }
+   </style>
+   
+
+</head>
+
+<body data-spy="scroll" data-target="#scrollspy_bar" data-offset="0" onload="functionToBeExecuted">
+   <!-- LODAER -->
+   <div class="loader_screen" id="loader_screen">
+       <div class="loader">
+           <svg viewBox="0 0 80 80">
+               <rect x="8" y="8" width="64" height="64"></rect>                
+           </svg>            
+       </div>
+   </div>
+
+   <!-- MAIN -->
+   <main class="ml-auto"><br>
+      <center><img src="{% static "assets/images/logo.png" %}" alt="" onerror=this.src="" heigth = "150" width="150"></center>
+       <!-- SECTION III -->
+       <div data-parallax="scroll" data-image-src="{% static "assets/images/bg/03.png" %}">
+           <!-- SECTION III - SERVICES SECTION -->
+           <div class="se_iii py_xl" id="se_iii">
+               <div class="container">                     
+                   <div class="row text-md-left text-center">
+                       <!-- col -->   
+                       <div class="col-lg-12 mb-1 text-center">
+                          
+                          <img 
+                          src="{% url 'CameraApp:video_feed' %}" 
+
+                          
+                               height="85%" 
+                               alt="No image found"
+                               width="85%" 
+                               class="icon-vid img-fluid mb-3" 
+                               onerror="this.src='{% static '19.gif' %}'; ">
+
+                       </div>
+                       <!-- col -->
+                       <div class="col-lg-12 mb-1 text-center" id = "cont">
+                           <!-- box -->
+                           <div class="box">
+                               <!-- icon -->
+                               <img src="{% static "assets/images/icons/layer.svg" %}" class="icon img-fluid mb-1" alt="icon"> 
+                                                              
+                                   {% ifequal status 'known' %}
+                                   <div class="se_title">
+                                      {% ifequal person 'recent' %}
+                                            {% if name %} <h3 class="mb-1">Hi, {{name}}</h3></a>{% endif %} 
+                                            {% if date %} <p class="mb-1">You have been identified @ {{date}}<br></p>{% endif %}
+
+                                            {% ifequal booking 'yes' %}
+                                                {% if boo %} 
+                                                <p class="mb-1" style="color: aliceblue;">You have an appointment between @ <b style="color: orange;">{{boo}}</b> with <b style="color: orange;">{% if doc %}Dr.{{doc}}{% endif %}</b></p> {% endif %}
+                                                <a href="{% url 'BookingApp:single-booking' b.id %}" class="btn btn-md btn-warning">View your appointment</a>    
+                                            {% endifequal %}
+
+                                            {% ifequal booking 'no' %}
+                                                <p class="mb-1" style="color: aliceblue;">You Don't have any Appointments, Create one...</p>  
+                                                <a href="{% url 'BookingApp:create-booking' per.patient_id %}" class="btn btn-md btn-warning">Book an appointment</a>
+                                            {% endifequal %}
+
+                                            </div>
+                                        {% else %}
+                                            <div class="se_title">
+                                                <h2 class="mb-1" style="color: aliceblue;">Welcome to Smiles</h2>
+                                                {% include 'CameraApp/greetings.html' %}
+                                            </div>
+                                            
+                                        {% endifequal %}
+
+
+                                   {% endifequal %}
+                                    
+                                   {% ifequal status 'unknown' %}
+                                    
+                                    {% ifequal stat 'new' %}
+
+                                        <div class="se_title">
+                                                    <h2 class="mb-1" style="color: aliceblue;">Welcome to Smiles</h2> 
+                                                    <p class="mb-1" style="color: aliceblue;"> You Are not in our User List</h3><br><br>
+                                                    <!-- <p class="mb-1">Click below, get your own access</p> -->
+                                                    <a href="{% url 'CameraApp:create' %}" id = "btn_click" class="btn btn-md btn-warning">Create your own Account</a>
+                                            </div>
+                                    {% else %}
+                                        <div class="se_title">
+                                            <h2 class="mb-1" style="color: aliceblue;">Welcome to Smiles</h2> 
+                                            {% include 'CameraApp/greetings.html' %}
+                                            
+
+                                        </div>
+                                            
+                                    
+                                    {% endifequal %}
+                                   {% endifequal %} 
+                                   
+                                   
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+            </main>   
+            <!-- <footer><center style="color: white;">Powered by &copy;VistanNextgen Pvt Ltd.</center></footer>  -->
+
+           </div>
+       </div>
+       
+
+   <!-- Scripts -->
+   
+   
+   <script src="{% static "assets/js/vendors/popper.js" %}"></script>
+   <script src="{% static "assets/js/vendors/bootstrap.min.js" %}"></script>
+   <script src="{% static "assets/js/vendors/jquery-3.3.1.min.js" %}"></script>
+   <script src="{% static "assets/js/vendors/parallax.min.js" %}"></script>
+   <script src="{% static "assets/js/vendors/slick.min.js" %}"></script>
+   <script src="{% static "assets/js/theme/script.js" %}"></script> 
+
+
+   
+   <script type="text/javascript">       
+       
+            var auto_refresh = setInterval(
+            function ()
+            {               
+                console.log('loaded');                     
+                $('#cont').load(location.href + " #cont").fadeIn("slow");
+            }, 5000); 
+    
+        
+   </script> 
+</html>
+
+</body> 
