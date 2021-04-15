@@ -156,3 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static', 'media')
 
 #BOOTSTRAP
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#################    STRIPE SETTINGS    #####################
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51Ig2DaSEuBp7gK54PhoBO3Qd0GEvfFYu3SDo9gSSgu42JMF0R21yJaJBLqZQ87bY0L2SfrXnpcXCKVBliLWWdgbg00VCKTguQ4'
+STRIPE_SECRET_KEY = 'sk_test_51Ig2DaSEuBp7gK54PnbdAZmUGTG1eHazw2iVMoWlZ4tM5QpjVfCqGkk1XV9F5okcYg3ZkVWXty10jHKXASujLjmM00uCbetCkQ'

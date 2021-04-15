@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="90"> -->
+    <title>Smile Hospitals</title>
+
+     <!-- stylesheet -->
+   <link rel="stylesheet" href="{% static "assets/css/vendors/bootstrap.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/font-awesome.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/slick.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/style.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/index.css" %}">
+   
+<style>
+
+.stripe-button-el{
+    width:30%;
+    
+}
+</style>
+
+</head>
+<body><br>
+    <center><img src="{% static "assets/images/logo.png" %}" alt="" onerror=this.src="" heigth = "150" width="150"></center>
+    <br>
+    <div class="container"><div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 mb-1 text-center" id = "cont">
+                           <!-- box -->
+                           <div class="box">
+                               <!-- icon -->
+                               {% comment %} <img src="{% static "assets/images/icons/layer.svg" %}" class="icon img-fluid mb-1" alt="icon">  {% endcomment %}
+                                                            <br>  
+                                  <p style="color: yellow;">Patient Booking Details</p>
+                                   <div class="se_title">
+                                        <table class="table table-striped table-dark">
+                                                
+                                            <thead>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Appointment Id</th>
+                                                    <td>{%if book %}{{book.id}}{% endif %}</td>                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Patient</th>
+                                                    <td>{%if book %}{{book.patient}}{% endif %}</td>                                                    
+                                                    
+                                                    <tr>
+                                                </tr> 
+                                                    <th scope="row">Consultant Doctor</th>
+                                                    <td>{%if book %}{{book.doctor.first_name}}&nbsp;{{a.doctor.last_name}}{% endif %}</td>                                                    
+                                                </tr>  
+                                                <tr>
+                                                    <th scope="row">Appointment Time</th>
+                                                    <td>{%if book %}{{book.Booking_time}}{% endif %}</td>                                                    
+                                                </tr> 
+                                                <tr>
+                                                    <th scope="row">Amount</th>
+                                                    <td>₹. 400</td>                                                    
+                                                </tr> 
+                                                
+                                                
+                                            </tbody>
+                                            
+                                        </table>  
+                                        <!-- <a href="" class = "btn btn-primary btn-md" id="checkout-button">Procedd to pay</a><br><br> -->
+                                        
+                                        <script src="https://js.stripe.com/v3/"></script>
+                                        
+                                        <form action="" method="POST" name = "pay">
+                                            {% csrf_token %}
+                                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-sm"
+                                                data-key="pk_test_51Ig2DaSEuBp7gK54PhoBO3Qd0GEvfFYu3SDo9gSSgu42JMF0R21yJaJBLqZQ87bY0L2SfrXnpcXCKVBliLWWdgbg00VCKTguQ4"
+                                                data-description="FR-Vistan"
+                                                data-amount="40000"
+                                                data-locale="auto"
+                                                data-image="{% static 'vistan.jpg' %}" 
+                                                data-currency= 'INR'
+                                                data-shipping-address='True'
+                                                data-billing-address='True'
+                                                data-zip-code='True'>
+                                            </script>
+                                        </form><br>
+
+                                        <a href="{% url 'CameraApp:index' %}" class="btn btn-sm btn-info">Go to Home</a>  
+                                   
+                                   </div>
+                       </div>
+                   </div>
+                   <div class="col-sm-2"></div></div></div>
+
+</body>

@@ -67,7 +67,9 @@ class Booking(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add = True)
     description = models.TextField()
+    amount = models.FloatField(default = 400.00)
     Booking_time = models.CharField(default = '10:00 to 10:30', choices = time, max_length = 15)
+    payment_status = models.BooleanField(default = False)
 
     class Meta:
         verbose_name = 'Booking'
@@ -79,6 +81,22 @@ class Booking(models.Model):
 
     def get_url(self):
         pass
+
+class Payment(models.Model):
+    payment_id = models.CharField(max_length = 100, unique = True)
+    user = models.CharField(max_length = 20)
+    amount = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add = True)
+    paid = models.BooleanField(default =False)
+
+    class Meta:
+        ordering = ('-id',)
+        verbose_name = 'Payment'
+        verbose_name_plural = 'Payments'
+
+    def __str__(self):
+        return '{}'.format(self.payment_id)
+
     
     
 

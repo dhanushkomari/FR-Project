@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="90"> -->
+    <title>Smile Hospitals</title>
+
+     <!-- stylesheet -->
+   <link rel="stylesheet" href="{% static "assets/css/vendors/bootstrap.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/font-awesome.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/vendors/slick.min.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/style.css" %}">
+   <link rel="stylesheet" href="{% static "assets/css/theme/index.css" %}">
+
+
+</head>
+<body><br>
+</body>
+    <div class="container">
+    <br>
+    <center><img src="{% static "assets/images/logo.png" %}" alt="" onerror=this.src="" heigth = "150" width="150"></center>
+    <br><br><br><br><br>
+    <center><img src="{% static "111.png" %}" class="icon img-fluid mb-1" alt="icon" height="10%" width="10%"></center>
+    <center><h4 style="color: aliceblue;">Payment Success!</h4></center>
+    <center><p style="color: aliceblue;">Thank You for Booking an Appoinment with us.</p></center>
+    <br><br><br><br>
+</div>
+
+
+<script type="text/javascript">       
+       
+    var auto_refresh = setInterval(
+    function ()
+    {               
+        console.log('loaded');                     
+        window.location.href = 'http://127.0.0.1:8000'
+    }, 20000); 
+
+
+</script> 
+
+</html>

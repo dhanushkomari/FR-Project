@@ -7,5 +7,6 @@ urlpatterns = [
     # path('', views.BookingView, name = 'booking'),
     # path('', views.test, name = 'test'), 
     path('create/<str:pk>', views.BookingView, name = 'create-booking'),
-    path('all/<str:pk>', views.ShowBookingView, name = 'single-booking')
+    path('all/<str:pk>', views.ShowBookingView, name = 'single-booking'),
+    path('payment-sucess', views.PaymentSuccess, name = 'payment_sucess')
 ]

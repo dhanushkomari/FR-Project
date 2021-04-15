@@ -36,22 +36,24 @@
                         {{ form.Booking_time|as_crispy_field }}
                     </div>
 
-                </div>
 
+                </div>
                 <div class="form-row" style="color: aliceblue;">
                     <div class="form-group col-sm-12 mb-0">
                         {{ form.description|as_crispy_field }}
-                    </div>
-
-                    
-                </div> 
-
-                    
+                    </div>                    
+                </div>  
 
                 
-                  
-                <button type="submit" class="btn btn-primary">Create</button>
-            </form><br> 
+
+                <button type="submit" class="btn btn-primary">Create & Proceed</button>                
+                              
+            </form><br>
+
+
+            
+
+
 
             <a href="{% url 'CameraApp:index' %}" class="btn btn-md btn-secondary">Go to home</a></center>
         </div>
@@ -77,7 +79,7 @@
     {               
         console.log('loaded');                     
         window.location.href = 'http://127.0.0.1:8000'
-    }, 80000); 
+    }, 500000); 
 
 
 </script> 
