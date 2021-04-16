@@ -8,5 +8,6 @@ urlpatterns = [
     # path('', views.test, name = 'test'), 
     path('create/<str:pk>', views.BookingView, name = 'create-booking'),
     path('all/<str:pk>', views.ShowBookingView, name = 'single-booking'),
-    path('payment-sucess', views.PaymentSuccess, name = 'payment_sucess')
+    path('payment-sucess', views.PaymentSuccess, name = 'payment_sucess'),
+    path('phonepe', views.phonepeView, name = 'phonepe')
 ]

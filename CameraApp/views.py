@@ -117,11 +117,14 @@ def Index(request):
 def UserCreateView(request):
     if request.method == 'POST':
         form  = PatientForm(request.POST)
+        print(request.POST)
         if form.is_valid():
+            print('valid')
             
             pat = Patient.objects.create(first_name = request.POST['first_name'],
                                         last_name = request.POST['last_name'],
                                         age = request.POST['age'],
+                                        username = request.POST['username'],
                                         blood_group = request.POST['blood_group'],
                                         gender = request.POST['gender'],
                                         status = request.POST['status'],
@@ -130,6 +133,7 @@ def UserCreateView(request):
                                         city = request.POST['city']
                                         )
             pat.save()
+            print('patient is saved to db')
             st = Status.objects.latest('pk')
             if st.status == 'unknown':                
                 st.delete()

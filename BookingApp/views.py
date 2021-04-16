@@ -81,12 +81,6 @@ def BookingView(request, pk):
             print('booking created')
             book.save()
 
-
-            ################     STRIPE CODE     ##############
-
-
-
-            # return HttpResponse('booking data added to db')
             return render(request, 'BookingApp/payment.html', {'book':book})
 
         else:
@@ -116,7 +110,11 @@ def ShowBookingView(request, pk):
 def PaymentSuccess(request):
     return render(request,  'BookingApp/payment_done.html')
 
- 
+###############################################################################################
+################################       PHONEPE PAYMENT           ##############################
+###############################################################################################
+def phonepeView(request):
+    return render(request, 'BookingApp/phonepe_payment.html')
  
 ###############################################################################################
 ############################           EXTRAS          ########################################

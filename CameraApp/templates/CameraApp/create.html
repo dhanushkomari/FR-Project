@@ -35,16 +35,19 @@
                         {{ form.last_name|as_crispy_field }}
                     </div>
                     <div class="form-group col-sm-4 mb-0">
+                        {{form.username|as_crispy_field}}
+                    </div>
+                    <div class="form-group col-sm-4 mb-0">
                         {{ form.city|as_crispy_field }}
                     </div>
 
-                    <div class="form-group col-sm-4 mb-0">
+                    <div class="form-group col-sm-2 mb-0">
                         {{form.age|as_crispy_field}}
                     </div>
-                    <div class="form-group col-sm-4 mb-0">
+                    <div class="form-group col-sm-3 mb-0">
                         {{form.blood_group|as_crispy_field}}
                     </div>
-                    <div class="form-group col-sm-4 mb-0">
+                    <div class="form-group col-sm-3 mb-0">
                         {{form.gender|as_crispy_field}}
                     </div>
 
@@ -57,10 +60,11 @@
                     <div class="form-group col-sm-4 mb-0">
                         {{form.email|as_crispy_field}}
                     </div>
+                    
 
                 </div>
                   
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Create Account</button>
             </form><br>
 
             <a href="{% url 'CameraApp:index' %}" class="btn btn-md btn-secondary">Go to home</a></center>
